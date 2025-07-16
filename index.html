@@ -1,468 +1,495 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Prashant Yadav | CoderCraft Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
-<style>
-  /* ... same styles as before ... */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'VT323', monospace;
-  }
-  html, body {
-    width: 100%;
-    overflow-x: hidden;
-  }
-  body {
-    background: #121212;
-    color: #33ff33;
-    image-rendering: pixelated;
-    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-  }
-  header {
-    background: #000;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 4px solid #33ff33;
-  }
-  header h1 {
-    font-size: 2.5rem;
-    color: #33ff33;
-  }
-  nav {
-    margin-top: 1rem;
-  }
-  nav a {
-    color: #33ff33;
-    margin: 0 1rem;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: 0.2s;
-  }
-  nav a:hover {
-    color: #00ffff;
-    text-shadow: 0 0 10px #00ffff, 0 0 15px #ff00ff;
-  }
-  marquee {
-    background: #000;
-    color: #33ff33;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    border-top: 2px dashed #33ff33;
-    border-bottom: 2px dashed #33ff33;
-    animation: glow 1s infinite alternate;
-  }
-  @keyframes glow {
-    from { text-shadow: 0 0 10px #33ff33; }
-    to { text-shadow: 0 0 20px #33ff33, 0 0 30px #33ff33; }
-  }
-  .hero {
-    text-align: center;
-    padding: 4rem 2rem;
-    background: #111;
-  }
-  .hero img {
-    width: 150px;
-    height: 150px;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    image-rendering: pixelated;
-    border: 3px solid #33ff33;
-  }
-  .hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-inline: auto;
-  }
-  .btn {
-    background: transparent;
-    border: 2px solid #33ff33;
-    padding: 0.8rem 2rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin: 0.5rem;
-    color: white;
-    border-radius: 8px;
-    position: relative;
-    z-index: 1;
-  }
-  .btn:hover {
-    background: linear-gradient(45deg, #33ff33, #00ffff, #ff00ff);
-    color: #000;
-    box-shadow: 0 0 15px #00ffff, 0 0 25px #ff00ff;
-  }
-  .dashboard {
-    background: #000;
-    padding: 2rem;
-    text-align: center;
-    border-top: 3px dotted #33ff33;
-    border-bottom: 3px dotted #33ff33;
-    box-shadow: 0 0 20px #33ff33 inset, 0 0 10px #33ff33;
-  }
-  .dashboard h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  .cube {
-    width: 100px;
-    height: 100px;
-    margin: 2rem auto;
-    transform-style: preserve-3d;
-    animation: rotateCube 10s infinite linear;
-    perspective: 600px;
-    position: relative;
-  }
-  .cube div {
-    width: 100px;
-    height: 100px;
-    background: rgba(51, 255, 51, 0.2);
-    border: 2px solid #33ff33;
-    position: absolute;
-  }
-  .cube div:nth-child(1) { transform: rotateY(0deg) translateZ(50px); }
-  .cube div:nth-child(2) { transform: rotateY(90deg) translateZ(50px); }
-  .cube div:nth-child(3) { transform: rotateY(180deg) translateZ(50px); }
-  .cube div:nth-child(4) { transform: rotateY(-90deg) translateZ(50px); }
-  .cube div:nth-child(5) { transform: rotateX(90deg) translateZ(50px); }
-  .cube div:nth-child(6) { transform: rotateX(-90deg) translateZ(50px); }
-  @keyframes rotateCube {
-    0% { transform: rotateX(0deg) rotateY(0deg); }
-    100% { transform: rotateX(360deg) rotateY(360deg); }
-  }
-  .section {
-    padding: 3rem 2rem;
-    text-align: center;
-    background: #1a1a1a;
-  }
-  .section h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  .projects, .skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
-    margin: auto;
-  }
-  .card {
-    background: #000;
-    border: 2px dashed #33ff33;
-    padding: 1rem;
-    border-radius: 5px;
-  }
-  .card:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
-    box-shadow: 0 0 10px #ff33aa, 0 0 15px #ffaa00;
-  }
-  footer {
-    background: #000;
-    padding: 2rem;
-    text-align: center;
-    color: #33ff33;
-    font-size: 1.2rem;
-    border-top: 2px solid #33ff33;
-  }
-  .socials a {
-    margin: 0 10px;
-    color: #33ff33;
-    text-decoration: none;
-    font-size: 1.5rem;
-  }
-  .socials a:hover {
-    text-shadow: 0 0 5px #33ff33;
-  }
-  @media (max-width: 600px) {
-    header, .hero, .section {
-      padding: 1rem;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prashant Yadav | CoderCraft Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'VT323', monospace;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      background: #121212;
+      color: #33ff33;
+      image-rendering: pixelated;
+      background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    }
+    body {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* ======= New header characters row ======= */
+    .header-characters-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+      background: #000;
+      border-bottom: 2px solid #33ff33;
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE 10+ */
+      z-index: 10;
+      position: relative;
+    }
+    .header-characters-row::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+    .character {
+      flex-shrink: 0;
+      animation: floatUpDown 3s ease-in-out infinite;
+      cursor: default;
+      filter: drop-shadow(0 0 3px #33ff33);
+      transition: transform 0.3s ease;
+      width: 50px;
+      height: 60px;
+    }
+    .character:hover {
+      transform: scale(1.2) translateY(-10px);
+      filter: drop-shadow(0 0 12px #33ff33);
+    }
+    @keyframes floatUpDown {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    @media (max-width: 600px) {
+      .header-characters-row {
+        gap: 12px;
+        padding: 5px 0;
+      }
+      .character:hover {
+        transform: scale(1.1) translateY(-6px);
+      }
+    }
+
+    /* ======= Header ======= */
+    header {
+      background: #000;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 4px solid #33ff33;
+      gap: 1.5rem;
+      position: relative;
+      flex-wrap: nowrap;
+      z-index: 9;
     }
     header h1 {
-      font-size: 1.5rem;
+      font-size: 2.5rem;
+      color: #33ff33;
+      white-space: nowrap;
+      text-shadow: 0 0 6px #33ff33;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    nav {
+      margin-left: 2rem;
     }
     nav a {
-      font-size: 1rem;
-      margin-left: 1rem;
+      color: #33ff33;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: 0.2s;
+    }
+    nav a:hover {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 15px #ff00ff;
+    }
+
+    marquee {
+      background: #000;
+      color: #33ff33;
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      border-top: 2px dashed #33ff33;
+      border-bottom: 2px dashed #33ff33;
+      animation: glow 1s infinite alternate;
+      z-index: 8;
+      position: relative;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #33ff33; }
+      to { text-shadow: 0 0 20px #33ff33, 0 0 30px #33ff33; }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #111;
+      position: relative;
+      z-index: 7;
     }
     .hero img {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      image-rendering: pixelated;
+      border: 3px solid #33ff33;
     }
-    .hero h2, .section h3 {
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
       font-size: 1.5rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-inline: auto;
     }
     .btn {
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
+      background: transparent;
+      border: 2px solid #33ff33;
+      padding: 0.8rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      margin: 0.5rem;
+      color: white;
+      border-radius: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .btn:hover {
+      background: linear-gradient(45deg, #33ff33, #00ffff, #ff00ff);
+      color: #000;
+      box-shadow: 0 0 15px #00ffff, 0 0 25px #ff00ff;
+    }
+
+    .dashboard {
+      background: #000;
+      padding: 2rem;
+      text-align: center;
+      border-top: 3px dotted #33ff33;
+      border-bottom: 3px dotted #33ff33;
+      box-shadow: 0 0 20px #33ff33 inset, 0 0 10px #33ff33;
+      position: relative;
+      z-index: 7;
+    }
+    .dashboard h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .cube {
+      width: 100px;
+      height: 100px;
+      margin: 2rem auto;
+      transform-style: preserve-3d;
+      animation: rotateCube 10s infinite linear;
+      perspective: 600px;
+      position: relative;
+    }
+    .cube div {
+      width: 100px;
+      height: 100px;
+      background: rgba(51, 255, 51, 0.2);
+      border: 2px solid #33ff33;
+      position: absolute;
+    }
+    @keyframes rotateCube {
+      0% { transform: rotateX(0deg) rotateY(0deg); }
+      100% { transform: rotateX(360deg) rotateY(360deg); }
+    }
+
+    .section {
+      padding: 3rem 2rem;
+      text-align: center;
+      background: #1a1a1a;
+      position: relative;
+      z-index: 7;
+    }
+    .section h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
     }
     .projects, .skills {
-      grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: auto;
     }
-  }
-  @keyframes floatYapra {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
+    .card {
+      background: #000;
+      border: 2px dashed #33ff33;
+      padding: 1rem;
+      border-radius: 5px;
+      cursor: default;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #ff33aa, 0 0 15px #ffaa00;
+    }
+
+    footer {
+      background: #000;
+      padding: 2rem;
+      text-align: center;
+      color: #33ff33;
+      font-size: 1.2rem;
+      border-top: 2px solid #33ff33;
+      position: relative;
+      z-index: 7;
+    }
+    .socials a {
+      margin: 0 10px;
+      color: #33ff33;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+    .socials a:hover {
+      text-shadow: 0 0 5px #33ff33;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+      nav {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+      nav a {
+        font-size: 1rem;
+        margin: 0 0.8rem;
+      }
+      .hero img {
+        width: 100px;
+        height: 100px;
+      }
+      .hero h2, .section h3 {
+        font-size: 1.5rem;
+      }
+      .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+      }
+      .projects, .skills {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @keyframes floatYapra {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Matrix background canvas */
+    #matrixCanvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      background: transparent;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>&lt;PrashantYadav/&gt;</h1>
-  <nav>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-<marquee behavior="scroll" direction="left">🚀 Welcome to the Retro-Futuristic CoderCraft Dashboard by Prashant Yadav — Explore Projects, Master Skills & Build the Future! 💻</marquee>
-<section class="hero">
-  <img src="https://i.imgur.com/0y0y0y0.jpg" alt="Prashant Yadav" />
-  <h2>Welcome to My CoderCraft</h2>
-  <p>I code with pixels, passion, and purpose — building software like it's retro treasure.</p>
-  <button class="btn" onclick="window.open('https://drive.google.com/your-resume-link')">Download .RESUME</button>
-</section>
-<section class="dashboard">
-  <h3>// 3D Showcase</h3>
-  <div class="cube">
-    <div></div><div></div><div></div><div></div><div></div><div></div>
-  </div>
-  <p>Hovering through code dimensions 🚀</p>
-  <button class="btn" onclick="openGame()">🎮 Launch Mini Game</button>
-</section>
-<section class="section" id="projects">
-  <h3>// Projects</h3>
-  <div class="projects">
-    <div class="card">
-      <h4>EcoTrackr</h4>
-      <p>Realtime DTC bus route manager with GPS and incident reporting.</p>
-    </div>
-    <div class="card">
-      <h4>GatherUp</h4>
-      <p>Discover, join & create local events using maps and smart filters.</p>
-    </div>
-    <div class="card">
-      <h4>SafeShe</h4>
-      <p>Women's safety app with instant SOS and live tracking system.</p>
-    </div>
-  </div>
-</section>
-<section class="section" id="skills">
-  <h3>// Skills</h3>
-  <div class="skills">
-    <div class="card">HTML / CSS / JavaScript</div>
-    <div class="card">React / Tailwind / Bootstrap</div>
-    <div class="card">Node.js / Express.js</div>
-    <div class="card">MongoDB / Firebase / SQL</div>
-    <div class="card">Python / C++ / Git</div>
-    <div class="card">API Integration & Auth</div>
-  </div>
-</section>
-<section class="section" style="background:#141414;">
-  <h3>// Meet Yapra</h3>
-  <div style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
-    <img
-      src="https://i.imgur.com/6X6D6cM.png"
-      alt="Yapra Assistant"
-      class="yapra"
-      style="width:120px;height:auto;margin-bottom:1rem;animation:floatYapra 2s ease-in-out infinite;"
-    />
-    <p
-      style="
-        font-size: 1.3rem;
-        color: #00ffff;
-        background: #222;
-        padding: 1rem 2rem;
-        border-radius: 12px;
-        border: 2px dashed #00ffff;
-        box-shadow: 0 0 10px #00ffff;
-        max-width: 400px;
-        animation: fadeIn 2s ease forwards;
-      "
-    >
-      Hi, I'm <strong>Yapra</strong> — your coding sidekick here to assist and vibe with you on this pixel-powered journey! 🧠💻
-    </p>
-  </div>
-</section>
-<section class="section" id="contact">
-  <h3>// Contact</h3>
-  <p>Let's build a blocky legacy in bytes.</p>
-  <p>Email: <strong>prashant.dev@gmail.com</strong></p>
-  <div class="socials">
-    <a href="https://github.com/prashantyadav" target="_blank">GitHub</a>
-    <a href="https://linkedin.com/in/prashantyadav" target="_blank">LinkedIn</a>
-    <a href="https://instagram.com/madguywithcam" target="_blank">Instagram</a>
-  </div>
-</section>
-<footer>
-  [Code by Prashant Yadav | Version 20.25] — Stay pixelated. Stay sharp.
-</footer>
+  <!-- Matrix Canvas -->
+  <canvas id="matrixCanvas"></canvas>
 
-<audio id="yapra-sound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+  <!-- New header characters row -->
+  <div class="header-characters-row" aria-label="Tech pixel art characters">
+    <div class="character" style="animation-delay: 0s;">
+      <!-- Coder with laptop -->
+      <svg width="50" height="60" viewBox="0 0 60 70" shape-rendering="crispEdges" style="image-rendering: pixelated;">
+        <rect x="15" y="5" width="30" height="30" fill="#d2b48c" stroke="#000" stroke-width="1.5"/>
+        <rect x="15" y="5" width="30" height="8" fill="#3b2f2f" stroke="#000" stroke-width="1.5"/>
+        <rect x="22" y="18" width="5" height="5" fill="#000" />
+        <rect x="33" y="18" width="5" height="5" fill="#000" />
+        <rect x="28" y="30" width="8" height="3" fill="#ff6666" />
+        <rect x="10" y="35" width="40" height="30" fill="#2a82da" stroke="#000" stroke-width="1.5" />
+        <rect x="15" y="60" width="30" height="7" fill="#444" stroke="#000" stroke-width="1.5" />
+      </svg>
+    </div>
 
-<script>
-  // Yapra sound effect on hover
-  const yapraImage = document.querySelector('.yapra');
-  const sound = document.getElementById('yapra-sound');
-  if (yapraImage && sound) {
-    yapraImage.addEventListener('mouseenter', () => {
-      sound.play();
-    });
-  }
+    <div class="character" style="animation-delay: 0.3s;">
+      <!-- Robot -->
+      <svg width="50" height="60" viewBox="0 0 60 70" shape-rendering="crispEdges" style="image-rendering: pixelated;">
+        <rect x="15" y="10" width="30" height="30" fill="#888" stroke="#222" stroke-width="1.5"/>
+        <rect x="22" y="20" width="6" height="6" fill="#0ff" />
+        <rect x="32" y="20" width="6" height="6" fill="#0ff" />
+        <rect x="25" y="38" width="10" height="4" fill="#33ff33" />
+        <rect x="10" y="40" width="40" height="30" fill="#555" stroke="#222" stroke-width="1.5" />
+        <rect x="20" y="50" width="6" height="6" fill="#0ff" />
+        <rect x="34" y="50" width="6" height="6" fill="#0ff" />
+      </svg>
+    </div>
 
-  // Snake game popup window and code
-  function openGame() {
-    const gameWindow = window.open('', 'snakeGame', 'width=420,height=480,resizable=yes');
-    gameWindow.document.write(\`
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Snake Game</title>
-        <style>
-          body {
-            margin: 0; background: #000; color: #33ff33; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: monospace;
-            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
-          }
-          canvas {
-            background: #111;
-            border: 3px solid #33ff33;
-            image-rendering: pixelated;
-            touch-action: none;
-          }
-          #controls {
-            margin-top: 10px;
-            display: flex;
-            gap: 10px;
-          }
-          button.control-btn {
-            background: #222;
-            border: 2px solid #33ff33;
-            color: #33ff33;
-            font-size: 1.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            user-select: none;
-          }
-          button.control-btn:active {
-            background: #33ff33;
-            color: #000;
-          }
-          h1 {
-            margin-bottom: 1rem;
-          }
-        </style>
-      </head>
-      <body>
-        <h1>Snake Game</h1>
-        <canvas id="game" width="400" height="400"></canvas>
-        <div id="controls">
-          <button class="control-btn" data-dir="UP">⬆️</button>
-          <button class="control-btn" data-dir="LEFT">⬅️</button>
-          <button class="control-btn" data-dir="DOWN">⬇️</button>
-          <button class="control-btn" data-dir="RIGHT">➡️</button>
+    <div class="character" style="animation-delay: 0.6s;">
+      <!-- Laptop -->
+      <svg width="50" height="60" viewBox="0 0 60 70" shape-rendering="crispEdges" style="image-rendering: pixelated;">
+        <rect x="5" y="40" width="50" height="20" fill="#1a1a1a" stroke="#33ff33" stroke-width="2"/>
+        <rect x="10" y="50" width="40" height="10" fill="#33ff33" />
+        <rect x="20" y="45" width="20" height="5" fill="#66ff66" />
+        <rect x="15" y="30" width="30" height="15" fill="#000" />
+      </svg>
+    </div>
+
+    <div class="character" style="animation-delay: 0.9s;">
+      <!-- Cloud -->
+      <svg width="50" height="60" viewBox="0 0 60 70" shape-rendering="crispEdges" style="image-rendering: pixelated;">
+        <rect x="15" y="30" width="30" height="15" fill="#ccc" stroke="#aaa" stroke-width="1" rx="5" ry="5"/>
+        <rect x="10" y="35" width="10" height="15" fill="#bbb" stroke="#aaa" stroke-width="1" rx="5" ry="5"/>
+        <rect x="40" y="35" width="10" height="15" fill="#bbb" stroke="#aaa" stroke-width="1" rx="5" ry="5"/>
+        <rect x="20" y="25" width="20" height="10" fill="#ddd" stroke="#aaa" stroke-width="1" rx="5" ry="5"/>
+      </svg>
+    </div>
+
+    <div class="character" style="animation-delay: 1.2s;">
+      <!-- Server -->
+      <svg width="50" height="60" viewBox="0 0 60 70" shape-rendering="crispEdges" style="image-rendering: pixelated;">
+        <rect x="15" y="10" width="30" height="50" fill="#222" stroke="#33ff33" stroke-width="2"/>
+        <rect x="20" y="20" width="20" height="5" fill="#33ff33" />
+        <rect x="20" y="30" width="20" height="5" fill="#0f0" />
+        <rect x="20" y="40" width="20" height="5" fill="#33ff33" />
+        <rect x="20" y="50" width="20" height="5" fill="#0f0" />
+      </svg>
+    </div>
+
+    <div class="character" style="animation-delay: 1.5s;">
+      <!-- Phone -->
+      <svg width="50" height="60" viewBox="0 0 60 70" shape-rendering="crispEdges" style="image-rendering: pixelated;">
+        <rect x="20" y="10" width="20" height="50" fill="#111" stroke="#33ff33" stroke-width="2" rx="6" ry="6"/>
+        <rect x="27" y="15" width="6" height="40" fill="#33ff33" />
+        <rect x="25" y="55" width="10" height="5" fill="#0f0" />
+      </svg>
+    </div>
+  </div>
+
+  <header>
+    <h1>&lt;PrashantYadav/&gt;</h1>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+    <marquee behavior="scroll" direction="left">🚀 Welcome to the World Class CoderCraft Dashboard by Prashant Yadav — Explore Projects, Master Skills & Build the Future! 💻</marquee>
+    <section class="hero">
+      <img src="https://i.imgur.com/0y0y0y0.jpg" alt="Prashant Yadav">
+      <h2>Welcome to My World Class CoderCraft</h2>
+      <p>I code with pixels, passion, and purpose — building software like it's retro treasure.</p>
+      <button class="btn" onclick="window.open('https://drive.google.com/your-resume-link')">Download .RESUME</button>
+    </section>
+    <section class="dashboard">
+      
+    <section class="section" id="projects">
+      <h3>// Projects</h3>
+      <div class="projects">
+        <div class="card">
+          <h4>EcoTrackr</h4>
+          <p>Realtime DTC bus route manager with GPS and incident reporting.</p>
         </div>
-        <script>
-          window.onload = function() {
-            const canvas = document.getElementById('game');
-            const ctx = canvas.getContext('2d');
-            const box = 20;
-            let snake = [{ x: 9 * box, y: 10 * box }];
-            let food = { x: Math.floor(Math.random() * 19 + 1) * box, y: Math.floor(Math.random() * 19 + 1) * box };
-            let direction = 'RIGHT';
-            let game;
-
-            function draw() {
-              ctx.fillStyle = '#111';
-              ctx.fillRect(0, 0, 400, 400);
-
-              for (let i = 0; i < snake.length; i++) {
-                ctx.fillStyle = i === 0 ? '#33ff33' : '#00aa00';
-                ctx.fillRect(snake[i].x, snake[i].y, box, box);
-              }
-
-              ctx.fillStyle = '#ff0033';
-              ctx.fillRect(food.x, food.y, box, box);
-
-              let headX = snake[0].x;
-              let headY = snake[0].y;
-
-              if (direction === 'LEFT') headX -= box;
-              if (direction === 'RIGHT') headX += box;
-              if (direction === 'UP') headY -= box;
-              if (direction === 'DOWN') headY += box;
-
-              if (
-                headX < 0 || headX >= 400 ||
-                headY < 0 || headY >= 400 ||
-                snake.some((s, i) => i !== 0 && s.x === headX && s.y === headY)
-              ) {
-                clearInterval(game);
-                alert('Game Over! Your score: ' + (snake.length - 1));
-                return;
-              }
-
-              const newHead = { x: headX, y: headY };
-
-              if (headX === food.x && headY === food.y) {
-                food = {
-                  x: Math.floor(Math.random() * 19 + 1) * box,
-                  y: Math.floor(Math.random() * 19 + 1) * box,
-                };
-              } else {
-                snake.pop();
-              }
-
-              snake.unshift(newHead);
-            }
-
-            function changeDirection(event) {
-              const key = event.key;
-              if ((key === 'ArrowLeft' || key === 'a') && direction !== 'RIGHT') direction = 'LEFT';
-              else if ((key === 'ArrowUp' || key === 'w') && direction !== 'DOWN') direction = 'UP';
-              else if ((key === 'ArrowRight' || key === 'd') && direction !== 'LEFT') direction = 'RIGHT';
-              else if ((key === 'ArrowDown' || key === 's') && direction !== 'UP') direction = 'DOWN';
-            }
-
-            document.addEventListener('keydown', changeDirection);
-
-            const btns = document.querySelectorAll('.control-btn');
-            btns.forEach(btn => {
-              btn.addEventListener('click', () => {
-                const dir = btn.getAttribute('data-dir');
-                if (dir === 'LEFT' && direction !== 'RIGHT') direction = 'LEFT';
-                else if (dir === 'UP' && direction !== 'DOWN') direction = 'UP';
-                else if (dir === 'RIGHT' && direction !== 'LEFT') direction = 'RIGHT';
-                else if (dir === 'DOWN' && direction !== 'UP') direction = 'DOWN';
-              });
-            });
-
-            game = setInterval(draw, 100);
-          };
-        </script>
-      </body>
-      </html>
-    \`);
-    gameWindow.document.close();
-  }
-</script>
+        <div class="card">
+          <h4>GatherUp</h4>
+          <p>Discover, join & create local events using maps and smart filters.</p>
+        </div>
+        <div class="card">
+          <h4>SafeShe</h4>
+          <p>Women's safety app with instant SOS and live tracking system.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="skills">
+      <h3>// Skills</h3>
+      <div class="skills">
+        <div class="card">HTML / CSS / JavaScript</div>
+        <div class="card">React / Tailwind / Bootstrap</div>
+        <div class="card">Node.js / Express.js</div>
+        <div class="card">MongoDB / Firebase / SQL</div>
+        <div class="card">Python / C++ / Git</div>
+        <div class="card">API Integration & Auth</div>
+      </div>
+    </section>
+    <section class="section" id="contact">
+      <h3>// Contact</h3>
+      <p>Let's build a blocky legacy in bytes.</p>
+      <p>Email: <strong>prashant.dev@gmail.com</strong></p>
+      <button class="btn" onclick="location.href='mailto:prashant.dev@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Prashant%2C%0A%0AI%20would%20like%20to%20connect%20with%20you.%20Please%20get%20back%20to%20me.%0A%0ABest%20regards%2C'">
+        📧 Email Me
+      </button>
+      <div class="socials">
+        <a href="https://github.com/prashantyadav" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/prashantyadav" target="_blank">LinkedIn</a>
+        <a href="https://instagram.com/madguywithcam" target="_blank">Instagram</a>
+      </div>
+    </section>
+    <footer>
+      [Code by Prashant Yadav | Version 20.25] — Stay pixelated. Stay sharp.
+    </footer>
+  </div>
+  <script>
+    // Matrix effect code
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas size
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    
+    const letters = 'abcdefghijklmnopqrstuvwxyz0123456789<>/{}[]();,.+-*=~@#$%^&|ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const fontSize = 16;
+    const columns = Math.floor(width / fontSize);
+    const drops = [];
+    
+    for(let x = 0; x < columns; x++) drops[x] = Math.floor(Math.random() * height / fontSize);
+    
+    function draw() {
+      // Black BG with slight opacity for trail effect
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.fillRect(0, 0, width, height);
+      
+      ctx.fillStyle = '#33ff33';
+      ctx.font = fontSize + 'px VT323';
+      
+      for(let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        
+        if(drops[i] * fontSize > height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    
+    setInterval(draw, 50);
+    
+    // Resize canvas on window resize
+    window.addEventListener('resize', () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    });
+  </script>
 </body>
 </html>
